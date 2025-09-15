@@ -1,0 +1,53 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f6fa;
+}
+
+.card {
+  background: #fff;
+  padding: 2rem 3rem;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.logo-row {
+  display: flex;
+  gap: 1vmax;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.counter {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 2rem 0;
+}
+
+.button-row {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+button {
+  background: #0077ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  transition: background 0.2s;
+  box-shadow: 0 0.5px 1px rgba(0,0,0,0.04);
+}
+
+button:active {
+  background: #0059bd;
+}
+
+.decrement { background: #ff4742; }
+.increment { background: #21c47a; }
+.reset { background: #bbbbbb; color: #222; }
