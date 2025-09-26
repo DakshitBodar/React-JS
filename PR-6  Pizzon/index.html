@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + React</title>
+  <link rel="preload" href="preloader.svg" />
+</head>
+
+<body>
+  <script>
+    window.addEventListener("load", function () {
+      const preloader = document.querySelector("#preloader");
+      const mainContent = document.getElementById("body");
+      const body = document.body;
+
+      preloader.classList.add("loaded");
+      body.classList.add("loaded");
+
+      preloader.addEventListener("animationend", function () {
+        preloader.style.display = "none";
+        mainContent.classList.remove("hidden");
+      });
+    });
+  </script>
+  <style>
+    @keyframes fadeOutUp {
+      0% {
+        opacity: 1;
+      }
+
+      20% {
+        opacity: 0.4;
+        filter: blur(5px);
+      }
+
+      100% {
+        background-color: transparent !important;
+        opacity: 0;
+        filter: blur(10px);
+      }
+    }
+
+    .preloader.loaded {
+      animation: fadeOutUp 0.7s forwards;
+    }
+
+    .preloader {
+      background-color: #fffaed;
+      position: fixed;
+      height: 100%;
+      width: 100vw;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+
+    }
+
+    .preloader-box {
+      margin: auto 0 ;
+      width: 100%;
+      height: auto;
+    }
+
+    .preloader-box img {
+      width: 350px;
+      height: auto;
+      margin: 0 auto;
+      display: flex;
+      justify-items: center;
+    }
+  </style>
+
+  <div class="preloader" id="preloader">
+    <div class="preloader-box">
+      <img src="preloader.svg" alt="">
+    </div>
+  </div>
+
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>

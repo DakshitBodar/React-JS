@@ -1,0 +1,32 @@
+.kind{
+    padding: 150px 0 120px;
+    position: relative;
+    background-color: #FFFAED;
+    margin-bottom: 150px;
+}
+
+.kind-img {
+    position: absolute;
+    top: 100px;
+    right: 0;
+}
+
+.kind-title{
+    position: relative;
+    width: fit-content;
+    margin-bottom: 10px;    
+}
+
+.kind-title::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 15px);
+    background: #f22e3e;
+    width: 90px;
+    height: 2px;
+    transform: translateY(-50%);
+}
+.kind-box{
+    padding: 0 20px;
+}

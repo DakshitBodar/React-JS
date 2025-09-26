@@ -1,0 +1,131 @@
+.Footer ul li {
+    list-style: none;
+    color: #777777;
+    padding: 0 0 20px 0;
+    font-weight: 600;
+}
+
+.Footer ul {
+    padding: 0;
+}
+
+.Footer {
+    padding: 100px 0px;
+    background-color: #FFFAED;
+    position: relative;
+}
+
+.Footer h3 {
+    font-size: 18px;
+    text-transform: uppercase;
+    padding-bottom: 20px;
+}
+
+.Footer .socialmedia li {
+    font-size: 40px;
+    padding-right: 20px;
+    color: #777777;
+}
+
+.Footer .socialmedia li:first-child {
+    color: #3b579d;
+}
+
+.Footer .socialmedia li:nth-child(2) {
+    color: #cc2127;
+}
+
+.Footer .socialmedia li:nth-child(3) {
+    color: #2caae1;
+}
+
+.Footer .socialmedia li:nth-child(4) {
+    color: #dc4a38;
+}
+
+.footer-img {
+    position: relative;
+    width: 100%;
+}
+
+.footer-img .logo-img {
+    position: absolute;
+    content: "";
+    box-sizing: border-box;
+    left: 70px;
+    max-width: 75px;
+    top: 30%;
+
+}
+
+.footer-img .pattern-img {
+    position: absolute;
+    content: "";
+    box-sizing: border-box;
+    top: 50%;
+    right: 70px;
+}
+
+.Footer ul li {
+    letter-spacing: .3px;
+}
+
+.Footer p {
+    color: #777777;
+    font-weight: 600;
+    line-height: 29px;
+}
+
+.Footer button {
+    transition: .5s;
+}
+
+.Footer button:hover {
+    background-color: #E23744 !important;
+    border: none;
+}
+
+.Footer .legal {
+    padding: 30px 20px 0 0;
+}
+
+.Footer .legal li {
+    padding-right: 20px;
+    font-weight: 500;
+    font-size: 16px;
+    color: #777777;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.Footer .legal li:hover {
+    color: #E23744;
+}
+
+.Footer .legal li::after {
+    content: "|";
+    padding-left: 20px;
+    color: #777777;
+}
+
+.Footer .legal li:last-child::after {
+    content: "";
+    padding: 0;
+}
+
+.Footer .app {
+    padding: 30px 20px 0 0;
+}
+.Footer .app img {
+    padding-right: 20px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.Footer ul li{
+    cursor: pointer;
+    transition: .5s;
+}
+.Footer ul li:hover {
+   color: #E23744;
+}
