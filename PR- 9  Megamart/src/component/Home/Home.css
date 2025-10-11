@@ -1,0 +1,12 @@
+.offer-buttons button {
+  transition: all 0.2s ease-in-out;
+}
+
+.offer-buttons button:hover {
+  background-color: #f0f0f0;
+}
+
+.banner-slide {
+  background-color: #eee;
+  border-radius: 10px;
+}
