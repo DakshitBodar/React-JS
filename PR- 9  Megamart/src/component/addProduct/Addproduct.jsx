@@ -23,7 +23,6 @@ const Addproduct = () => {
   const [inputForm, setInputForm] = useState(initialState);
   const [error, setError] = useState({});
 
-  // ✅ handle input change
   const handleChanged = (e) => {
     const { name, value, type, checked } = e.target;
     if (type === "checkbox") {
@@ -41,7 +40,6 @@ const Addproduct = () => {
     }
   };
 
-  // ✅ validation logic
   const validationForm = () => {
     let formError = {};
 
@@ -65,17 +63,12 @@ const Addproduct = () => {
     }
     if (inputForm.pimg.trim() === "") {
       formError.pimg = "Image URL cannot be empty";
-    } else if (
-      !/^https?:\/\/.*\.(jpg|jpeg|png|webp)$/i.test(inputForm.pimg.trim())
-    ) {
-      formError.pimg = "Please enter a valid image URL (jpg, jpeg, png, webp)";
     }
 
     setError(formError);
-    return Object.keys(formError).length === 0; // ✅ true if no error
+    return Object.keys(formError).length === 0; 
   };
 
-  // ✅ handle submit
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validationForm()) {
@@ -120,7 +113,6 @@ const Addproduct = () => {
           Add New Product
         </h2>
         <Form onSubmit={handleSubmit}>
-          {/* Product Name */}
           <Form.Group className="mb-4">
             <Form.Label className="fw-semibold">Product Name</Form.Label>
             <Form.Control
@@ -136,7 +128,6 @@ const Addproduct = () => {
             )}
           </Form.Group>
 
-          {/* Description */}
           <Form.Group className="mb-4">
             <Form.Label className="fw-semibold">Product Description</Form.Label>
             <Form.Control
@@ -153,7 +144,6 @@ const Addproduct = () => {
             )}
           </Form.Group>
 
-          {/* Category and Brand */}
           <Row>
             <Col md={6}>
               <Form.Group className="mb-4">
@@ -198,7 +188,6 @@ const Addproduct = () => {
             </Col>
           </Row>
 
-          {/* Price */}
           <Form.Group className="mb-4">
             <Form.Label className="fw-semibold">Price (₹)</Form.Label>
             <Form.Control
@@ -214,7 +203,6 @@ const Addproduct = () => {
             )}
           </Form.Group>
 
-          {/* Sizes */}
           <Form.Group className="mb-4">
             <Form.Label className="fw-semibold">Available Sizes</Form.Label>
             <div className="d-flex flex-wrap gap-3 mt-2">
@@ -271,7 +259,6 @@ const Addproduct = () => {
             )}
           </Form.Group>
 
-          {/* Live Image Preview */}
           {inputForm.pimg && (
             <div className="text-center mb-4">
               <img
@@ -288,7 +275,6 @@ const Addproduct = () => {
             </div>
           )}
 
-          {/* Submit Button */}
           <div className="text-center mt-4">
             <Button
               type="submit"
@@ -314,3 +300,4 @@ const Addproduct = () => {
 };
 
 export default Addproduct;
+
