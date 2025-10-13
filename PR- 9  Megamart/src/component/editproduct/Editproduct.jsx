@@ -101,7 +101,6 @@ const Editproduct = () => {
         </h2>
 
         <Form onSubmit={handleSubmit}>
-          {/* Product Name */}
           <Form.Group className="mb-4">
             <Form.Label className="fw-semibold">Product Name</Form.Label>
             <Form.Control
@@ -115,7 +114,6 @@ const Editproduct = () => {
             />
           </Form.Group>
 
-          {/* Description */}
           <Form.Group className="mb-4">
             <Form.Label className="fw-semibold">Product Description</Form.Label>
             <Form.Control
@@ -130,7 +128,6 @@ const Editproduct = () => {
             />
           </Form.Group>
 
-          {/* Category and Brand */}
           <Row>
             <Col md={6}>
               <Form.Group className="mb-4">
@@ -171,7 +168,6 @@ const Editproduct = () => {
             </Col>
           </Row>
 
-          {/* Price */}
           <Form.Group className="mb-4">
             <Form.Label className="fw-semibold">Price (₹)</Form.Label>
             <Form.Control
@@ -185,7 +181,6 @@ const Editproduct = () => {
             />
           </Form.Group>
 
-          {/* Sizes */}
           <Form.Group className="mb-4">
             <Form.Label className="fw-semibold">Available Sizes</Form.Label>
             <div className="d-flex flex-wrap gap-3 mt-2">
@@ -221,7 +216,6 @@ const Editproduct = () => {
             </div>
           </Form.Group>
 
-          {/* Image URL */}
           <Form.Group className="mb-4">
             <Form.Label className="fw-semibold">Product Image URL</Form.Label>
             <Form.Control
@@ -235,7 +229,6 @@ const Editproduct = () => {
             />
           </Form.Group>
 
-          {/* Image Preview */}
           {inputForm.pimg && (
             <div className="text-center mb-4">
               <img
@@ -252,7 +245,6 @@ const Editproduct = () => {
             </div>
           )}
 
-          {/* Submit Button */}
           <div className="text-center mt-4">
             <Button
               type="submit"
@@ -278,3 +270,4 @@ const Editproduct = () => {
 };
 
 export default Editproduct;
+
