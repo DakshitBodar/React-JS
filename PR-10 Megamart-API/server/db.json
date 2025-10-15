@@ -1,0 +1,19 @@
+{
+  "products": [
+    {
+      "id": "7456",
+      "pname": "fdghj",
+      "pdesc": "dsgfhjk",
+      "category": "Jackets",
+      "pimg": "https://imgs.search.brave.com/EEuQy9SPkvpeRm2zd7VQt8b31hL8fxyZygnVpEmUWM8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMtbmEuc3NsLWlt/YWdlcy1hbWF6b24u/Y29tL2ltYWdlcy9J/LzYxVUl2ZDkwblFM/LmpwZw",
+      "psize": [
+        "XS",
+        "S",
+        "XL",
+        "L"
+      ],
+      "Brand": "Adidas",
+      "price": "1"
+    }
+  ]
+}
