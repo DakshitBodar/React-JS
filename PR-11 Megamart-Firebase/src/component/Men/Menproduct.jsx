@@ -10,7 +10,7 @@ import { useNavigate } from "react-router";
 const Menproduct = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { products } = useSelector(state => state.Menreducer);
+  const { products } = useSelector(state => state);
 
   const [filter, setFilter] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -260,3 +260,4 @@ const Menproduct = () => {
 };
 
 export default Menproduct;
+
