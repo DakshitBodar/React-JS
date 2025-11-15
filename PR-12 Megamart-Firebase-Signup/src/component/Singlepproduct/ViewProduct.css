@@ -1,0 +1,131 @@
+.view-wrapper {
+  min-height: 100vh;
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #dfe9f3 0%, #ffffff 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.view-card {
+  width: 100%;
+  max-width: 1050px;
+  border-radius: 30px;
+  padding: 40px;
+  border: none;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+.back-btn {
+  margin-bottom: 25px;
+  border-radius: 12px !important;
+  padding: 8px 22px !important;
+  font-weight: 600 !important;
+  border: none !important;
+  background: rgba(240,240,240,0.7) !important;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
+  color: #333 !important;
+}
+
+.image-box {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.product-img {
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.img-wrapper:hover .product-img {
+  transform: scale(1.1);
+}
+
+.product-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #222;
+  letter-spacing: 0.4px;
+  margin-bottom: 15px;
+}
+
+.product-price {
+  color: #0a8c45;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.product-desc {
+  color: #666;
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+.label {
+  color: #333;
+  font-weight: 600;
+}
+
+.value {
+  color: #555;
+}
+
+.size-section {
+  margin-top: 20px;
+}
+
+.size-list {
+  margin-top: 8px;
+}
+
+.size-badge {
+  border-radius: 12px !important;
+  font-size: 0.9rem !important;
+  padding: 8px 14px !important;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+}
+
+.no-size {
+  color: #777;
+}
+
+.product-id {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #777;
+}
+
+.edit-btn {
+  margin-top: 20px !important;
+  padding: 12px 35px !important;
+  border-radius: 14px !important;
+  font-weight: 600 !important;
+  border: none !important;
+  box-shadow: 0 10px 25px rgba(255,193,7,0.45) !important;
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.loading-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.loading-text {
+  color: #555;
+  font-weight: 600;
+}
