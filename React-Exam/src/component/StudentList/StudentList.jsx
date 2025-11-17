@@ -1,29 +1,29 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { DeleteStudentAsync, getAllstudentAsync } from "../../services/action/StudentAction";
-import { Button, Card, Row, Col, Form } from "react-bootstrap";
+import { Button, Card, Row, Col, Form, Spinner } from "react-bootstrap";
 import { useNavigate } from "react-router";
+import { FaEdit, FaTrash, FaEye } from "react-icons/fa";
+import './StudentList.css'; 
 
 const StudentList = () => {
-
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const { students } = useSelector(state => state.Studentreducer);
+    const { students, loading } = useSelector(state => state.Studentreducer);
     const { user } = useSelector(state => state.authreducer);
 
-    
     const [search, setSearch] = useState("");
     const [courseFilter, setCourseFilter] = useState("");
 
     useEffect(() => {
         dispatch(getAllstudentAsync());
-    }, []);
+    }, [dispatch]);
 
     const handleEdit = id => navigate(`/edit-student/${id}`);
     const handleDelete = id => dispatch(DeleteStudentAsync(id));
     const handleView = id => navigate(`/view-student/${id}`);
-    
+
     const filteredStudents = students.filter((stu) => {
         return (
             stu.studentName.toLowerCase().includes(search.toLowerCase()) &&
@@ -35,22 +35,24 @@ const StudentList = () => {
 
     return (
         <>
-            <h2 className="text-center mb-4">Student List</h2>
+            <h2 className="text-center mb-5 heading">Student List</h2>
 
-            <Row className="mb-4">
-                <Col md={4}>
+            <Row className="mb-4 filter-row">
+                <Col md={4} className="filter-col">
                     <Form.Control
                         type="text"
                         placeholder="Search by student name..."
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
+                        className="search-input"
                     />
                 </Col>
 
-                <Col md={4}>
+                <Col md={4} className="filter-col">
                     <Form.Select
                         value={courseFilter}
                         onChange={(e) => setCourseFilter(e.target.value)}
+                        className="course-select"
                     >
                         <option value="">Filter by Course</option>
                         {courseList.map((course, i) => (
@@ -61,46 +63,35 @@ const StudentList = () => {
             </Row>
 
             <Row>
-                {filteredStudents.length === 0 ? (
-                    <p>No Students Found</p>
+                {loading ? (
+                    <Col className="text-center">
+                        <Spinner animation="border" variant="primary" size="lg" />
+                    </Col>
+                ) : filteredStudents.length === 0 ? (
+                    <Col className="text-center">
+                        <p className="no-students-text">No Students Found</p>
+                    </Col>
                 ) : (
                     filteredStudents.map((stu) => (
                         <Col md={4} key={stu.StudentId} className="mb-4">
-                            
-                            <Card 
-                                className="shadow-sm border-0"
-                                style={{ borderRadius: "15px" }}
-                            >
+                            <Card className="student-card">
                                 <Card.Body>
-
-                                    <div className="d-flex align-items-center mb-3">
+                                    <div className="d-flex align-items-center mb-4">
                                         <div 
-                                            style={{
-                                                width: "55px",
-                                                height: "55px",
-                                                borderRadius: "50%",
-                                                background: "#007bff20",
-                                                display: "flex",
-                                                alignItems: "center",
-                                                justifyContent: "center",
-                                                fontSize: "20px",
-                                                fontWeight: "bold",
-                                                color: "#007bff",
-                                                marginRight: "12px"
-                                            }}
+                                            className="avatar"
                                         >
                                             {stu.studentName.charAt(0).toUpperCase()}
                                         </div>
 
                                         <div>
-                                            <Card.Title className="fw-bold mb-0" style={{ fontSize: "18px" }}>
+                                            <Card.Title className="student-name">
                                                 {stu.studentName}
                                             </Card.Title>
                                             <small className="text-muted">{stu.studentCourse}</small>
                                         </div>
                                     </div>
 
-                                    <Card.Text style={{ lineHeight: "1.6" }}>
+                                    <Card.Text className="student-details">
                                         <strong>Phone:</strong> {stu.phoneNumber} <br />
                                         <strong>Gender:</strong> {stu.gender} <br />
                                         <strong>Hobby:</strong> {stu.hobby.join(", ")} <br />
@@ -110,39 +101,37 @@ const StudentList = () => {
                                     </Card.Text>
 
                                     {user && (
-                                        <div className="d-flex justify-content-between mt-3">
+                                        <div className="action-buttons">
                                             <Button 
                                                 variant="primary" 
                                                 size="sm"
-                                                style={{ width: "30%" }}
                                                 onClick={() => handleEdit(stu.StudentId)}
+                                                className="action-btn"
                                             >
-                                                Edit
+                                                <FaEdit className="me-2" /> Edit
                                             </Button>
 
                                             <Button 
                                                 variant="info" 
                                                 size="sm"
-                                                style={{ width: "30%" }}
                                                 onClick={() => handleView(stu.StudentId)}
+                                                className="action-btn"
                                             >
-                                                Student Details
+                                                <FaEye className="me-2" /> View
                                             </Button>
 
                                             <Button 
                                                 variant="danger" 
                                                 size="sm"
-                                                style={{ width: "30%" }}
                                                 onClick={() => handleDelete(stu.StudentId)}
+                                                className="action-btn"
                                             >
-                                                Delete
+                                                <FaTrash className="me-2" /> Delete
                                             </Button>
                                         </div>
                                     )}
-
                                 </Card.Body>
                             </Card>
-
                         </Col>
                     ))
                 )}
@@ -152,4 +141,3 @@ const StudentList = () => {
 };
 
 export default StudentList;
-
