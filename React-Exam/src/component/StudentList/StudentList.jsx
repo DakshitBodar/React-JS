@@ -12,7 +12,7 @@ const StudentList = () => {
     const { students } = useSelector(state => state.Studentreducer);
     const { user } = useSelector(state => state.authreducer);
 
-    // FILTER STATES
+    
     const [search, setSearch] = useState("");
     const [courseFilter, setCourseFilter] = useState("");
 
@@ -23,8 +23,7 @@ const StudentList = () => {
     const handleEdit = id => navigate(`/edit-student/${id}`);
     const handleDelete = id => dispatch(DeleteStudentAsync(id));
     const handleView = id => navigate(`/view-student/${id}`);
-
-    // FILTER + SEARCH
+    
     const filteredStudents = students.filter((stu) => {
         return (
             stu.studentName.toLowerCase().includes(search.toLowerCase()) &&
@@ -32,14 +31,12 @@ const StudentList = () => {
         );
     });
 
-    // Get unique course list for dropdown
     const courseList = [...new Set(students.map(s => s.studentCourse))];
 
     return (
         <>
             <h2 className="text-center mb-4">Student List</h2>
 
-            {/* Filters */}
             <Row className="mb-4">
                 <Col md={4}>
                     <Form.Control
@@ -63,7 +60,6 @@ const StudentList = () => {
                 </Col>
             </Row>
 
-            {/* Student Cards */}
             <Row>
                 {filteredStudents.length === 0 ? (
                     <p>No Students Found</p>
@@ -77,7 +73,6 @@ const StudentList = () => {
                             >
                                 <Card.Body>
 
-                                    {/* Student Header with Avatar */}
                                     <div className="d-flex align-items-center mb-3">
                                         <div 
                                             style={{
@@ -105,7 +100,6 @@ const StudentList = () => {
                                         </div>
                                     </div>
 
-                                    {/* Details */}
                                     <Card.Text style={{ lineHeight: "1.6" }}>
                                         <strong>Phone:</strong> {stu.phoneNumber} <br />
                                         <strong>Gender:</strong> {stu.gender} <br />
@@ -115,7 +109,6 @@ const StudentList = () => {
                                         <strong>Admission:</strong> {stu.admissionDate}
                                     </Card.Text>
 
-                                    {/* Buttons */}
                                     {user && (
                                         <div className="d-flex justify-content-between mt-3">
                                             <Button 
@@ -133,7 +126,7 @@ const StudentList = () => {
                                                 style={{ width: "30%" }}
                                                 onClick={() => handleView(stu.StudentId)}
                                             >
-                                                View
+                                                Student Details
                                             </Button>
 
                                             <Button 
@@ -159,3 +152,4 @@ const StudentList = () => {
 };
 
 export default StudentList;
+
